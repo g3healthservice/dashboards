@@ -4,58 +4,193 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>Dashboards G3 Health Service — Links de Acesso</title>
+<title>Painéis & Portais — G3 Health Service</title>
 <style>
-  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-       background:linear-gradient(135deg,#1F3A5F,#152943);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;padding:24px;}
-  .card{background:#fff;border-radius:16px;padding:34px 30px;max-width:560px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.3);}
-  h1{margin:0 0 4px;font-size:22px;color:#1F3A5F;}
-  .sub{margin:0 0 24px;font-size:13px;color:#8C97A3;}
-  a.link{display:flex;align-items:center;gap:14px;text-decoration:none;border:1px solid #E1E8ED;border-radius:11px;
-         padding:15px 18px;margin-bottom:12px;transition:.15s;}
-  a.link:hover{border-color:#0E7C7B;background:#F4F7F9;transform:translateY(-1px);}
-  .emoji{font-size:26px;}
-  .txt .nm{font-size:15.5px;font-weight:700;color:#1F3A5F;}
-  .txt .url{font-size:12px;color:#0E7C7B;word-break:break-all;}
-  .foot{margin-top:8px;font-size:11px;color:#B0BAC4;text-align:center;}
+  :root{
+    --bg:#0d1b2a; --bg2:#132a43; --card:#ffffff; --ink:#0d1b2a;
+    --muted:#5b6b7c; --line:#e3e9f0; --accent:#1f7a8c; --accent2:#e63e6d;
+    --ok:#2f8f5b; --warn:#d4a017; --shadow:0 6px 24px rgba(13,27,42,.10);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:linear-gradient(160deg,#0d1b2a 0%,#132a43 100%);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+  }
+  header{
+    max-width:1160px; margin:0 auto; padding:44px 24px 8px; color:#fff;
+  }
+  .brand{display:flex; align-items:center; gap:14px}
+  .logo{
+    width:52px;height:52px;border-radius:14px;flex:0 0 auto;
+    background:linear-gradient(135deg,var(--accent),#2aa5bb);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;
+    box-shadow:var(--shadow); letter-spacing:.5px;
+  }
+  h1{margin:0;font-size:26px;font-weight:750;letter-spacing:-.3px}
+  .sub{margin:2px 0 0;color:#9fb4c7;font-size:14px}
+  .updated{margin-top:16px;color:#8299ad;font-size:12.5px}
+  main{max-width:1160px;margin:0 auto;padding:20px 24px 60px}
+  .section-title{
+    color:#cfe0ee;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.10em;
+    margin:30px 6px 12px;display:flex;align-items:center;gap:10px;
+  }
+  .section-title::after{content:"";flex:1;height:1px;background:rgba(207,224,238,.18)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+  .card{
+    background:var(--card);border-radius:16px;padding:20px 20px 18px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;
+    border:1px solid rgba(255,255,255,.5);transition:transform .14s ease, box-shadow .14s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(13,27,42,.20)}
+  .card .top{display:flex;align-items:flex-start;gap:13px}
+  .ico{
+    width:44px;height:44px;border-radius:12px;flex:0 0 auto;display:flex;align-items:center;
+    justify-content:center;font-size:22px;background:#eef4f7;
+  }
+  .card h3{margin:0;font-size:16.5px;font-weight:700;line-height:1.25}
+  .card .tag{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:2px;display:block}
+  .card p{margin:12px 0 0;font-size:13.5px;color:var(--muted);line-height:1.5;flex:1}
+  .card .foot{
+    margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    font-size:12.5px;font-weight:600;color:var(--accent);
+  }
+  .card .url{color:#93a4b4;font-weight:500;font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
+  .go{display:inline-flex;align-items:center;gap:5px}
+  .badge{
+    position:absolute;top:14px;right:14px;font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;
+    letter-spacing:.03em;
+  }
+  .b-live{background:#e5f4ec;color:var(--ok)}
+  .b-lock{background:#fdf5e2;color:var(--warn)}
+  .b-local{background:#eef1f5;color:#6a7787}
+  .note{
+    max-width:1160px;margin:8px auto 0;padding:0 30px;color:#8299ad;font-size:12px;line-height:1.6;
+  }
+  footer{max-width:1160px;margin:0 auto;padding:10px 30px 40px;color:#6f849a;font-size:12px}
+  a.plain{color:#9fc4d4}
+  @media (max-width:520px){ header{padding-top:30px} h1{font-size:22px} }
 </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Dashboards — G3 Health Service</h1>
-    <p class="sub">Clique em qualquer item para abrir no navegador.</p>
-
-    <a class="link" href="https://g3healthservice.github.io/dashboard-rosalindtest/" target="_blank" rel="noopener">
-      <span class="emoji">🩸</span>
-      <span class="txt"><div class="nm">RosalindTest</div><div class="url">g3healthservice.github.io/dashboard-rosalindtest</div></span>
-    </a>
-
-    <a class="link" href="https://g3healthservice.github.io/dashboard-linda/" target="_blank" rel="noopener">
-      <span class="emoji">🌡️</span>
-      <span class="txt"><div class="nm">Linda</div><div class="url">g3healthservice.github.io/dashboard-linda</div></span>
-    </a>
-
-    <a class="link" href="https://g3healthservice.github.io/rastreio-colo-utero-pinkpapa/" target="_blank" rel="noopener">
-      <span class="emoji">🎀</span>
-      <span class="txt"><div class="nm">PinkPapa — Rastreio de colo do útero (DNA-HPV)</div><div class="url">g3healthservice.github.io/rastreio-colo-utero-pinkpapa</div></span>
-    </a>
-
-    <a class="link" href="https://g3healthservice.github.io/raiox-captacao-sus/" target="_blank" rel="noopener">
-      <span class="emoji">📊</span>
-      <span class="txt"><div class="nm">Raio-X Captação SUS</div><div class="url">g3healthservice.github.io/raiox-captacao-sus</div></span>
-    </a>
-
-    <a class="link" href="https://g3healthservice.github.io/radar-editais-engenharia/" target="_blank" rel="noopener">
-      <span class="emoji">📡</span>
-      <span class="txt"><div class="nm">Radar de Editais</div><div class="url">g3healthservice.github.io/radar-editais-engenharia</div></span>
-    </a>
-
-    <a class="link" href="https://g3healthservice.github.io/monitor-judicializacao/" target="_blank" rel="noopener">
-      <span class="emoji">⚖️</span>
-      <span class="txt"><div class="nm">Monitor de Judicialização</div><div class="url">g3healthservice.github.io/monitor-judicializacao</div></span>
-    </a>
-
-    <p class="foot">G3 Health Service · índice de painéis · compartilhável</p>
+<header>
+  <div class="brand">
+    <div class="logo">G3</div>
+    <div>
+      <h1>Painéis & Portais G3</h1>
+      <p class="sub">Central de acesso — todas as ferramentas que construímos</p>
+    </div>
   </div>
+  <div class="updated">Atualizado em 28/07/2026 · clique em qualquer cartão para abrir</div>
+</header>
+
+<main>
+
+  <div class="section-title">Captação SUS &amp; Judicialização</div>
+  <div class="grid">
+
+    <a class="card" href="https://g3healthservice.github.io/raiox-captacao-sus/" target="_blank" rel="noopener">
+      <span class="badge b-lock">🔒 login</span>
+      <div class="top">
+        <div class="ico">🩻</div>
+        <div><h3>Raio-X — Captação SUS</h3><span class="tag">Propostas FNS × FAF · Número único · Controladoria</span></div>
+      </div>
+      <p>Diagnóstico de captação por município: propostas MAC/PAP, teto financeiro (SISMAC), gerador de leads por PDF e o CRM da equipe. Entre com seu e-mail e a senha de acesso (o Gerson te passa por fora).</p>
+      <div class="foot"><span class="url">github.io/raiox-captacao-sus</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+    <a class="card" href="https://g3healthservice.github.io/monitor-judicializacao/" target="_blank" rel="noopener">
+      <span class="badge b-live">● no ar</span>
+      <div class="top">
+        <div class="ico">⚖️</div>
+        <div><h3>Monitor de Judicialização</h3><span class="tag">Tema 1.234 · DataJud · por município</span></div>
+      </div>
+      <p>Monitor de ações de judicialização de medicamentos de alto custo, orientado a município, atualizado por GitHub Actions a partir do DataJud.</p>
+      <div class="foot"><span class="url">github.io/monitor-judicializacao</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+    <a class="card" href="https://intermediadora-g3.fly.dev/" target="_blank" rel="noopener">
+      <span class="badge b-lock">🔒 login</span>
+      <div class="top">
+        <div class="ico">💊</div>
+        <div><h3>PWG — Esteira do Medicamento</h3><span class="tag">Pharmedical · Waldhelm Moura · G3 · rastreio judicializado</span></div>
+      </div>
+      <p>Plataforma operacional (log rastreável + cofre de PII) do fornecimento de medicamento de alto custo judicializado. Acesso por conta individual — entre com seu e-mail e senha.</p>
+      <div class="foot"><span class="url">intermediadora-g3.fly.dev</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+  </div>
+
+  <div class="section-title">Rastreio &amp; Produtos de Saúde (dashboards municipais IBGE)</div>
+  <div class="grid">
+
+    <a class="card" href="https://g3healthservice.github.io/dashboard-rosalindtest/" target="_blank" rel="noopener">
+      <span class="badge b-live">● no ar</span>
+      <div class="top">
+        <div class="ico">🎗️</div>
+        <div><h3>RosalindTest</h3><span class="tag">Rastreio molecular · câncer de mama</span></div>
+      </div>
+      <p>Calculadora de ROI + dashboard por município para o RosalindTest (rastreio molecular do câncer de mama). Seletor IBGE e geração de proposta em PDF.</p>
+      <div class="foot"><span class="url">github.io/dashboard-rosalindtest</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+    <a class="card" href="https://g3healthservice.github.io/dashboard-linda/" target="_blank" rel="noopener">
+      <span class="badge b-live">● no ar</span>
+      <div class="top">
+        <div class="ico">💗</div>
+        <div><h3>Linda LifeTech</h3><span class="tag">Infravermelho + IA · mulheres 20+</span></div>
+      </div>
+      <p>Dashboard IBGE × Linda: rastreio de câncer de mama por infravermelho e IA, dimensionado pela população feminina 20+ de cada município.</p>
+      <div class="foot"><span class="url">github.io/dashboard-linda</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+    <a class="card" href="https://g3healthservice.github.io/rastreio-colo-utero-pinkpapa/" target="_blank" rel="noopener">
+      <span class="badge b-live">● no ar</span>
+      <div class="top">
+        <div class="ico">🌸</div>
+        <div><h3>PinkPapa (PinkLab)</h3><span class="tag">DNA-HPV / autocoleta · mulheres 25–64</span></div>
+      </div>
+      <p>Painel de rastreio de câncer de colo do útero por teste DNA-HPV e autocoleta, mulheres 25–64. Envio de proposta por e-mail direto do painel.</p>
+      <div class="foot"><span class="url">github.io/rastreio-colo-utero-pinkpapa</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+  </div>
+
+  <div class="section-title">Engenharia &amp; Unidades Móveis</div>
+  <div class="grid">
+
+    <a class="card" href="https://g3healthservice.github.io/radar-editais-engenharia/" target="_blank" rel="noopener">
+      <span class="badge b-live">● no ar</span>
+      <div class="top">
+        <div class="ico">📡</div>
+        <div><h3>Radar de Editais — Engenharia</h3><span class="tag">PNCP · reforma predial · alerta e-mail</span></div>
+      </div>
+      <p>Scraper do PNCP + dashboard de editais de engenharia civil/reforma predial, com alerta por e-mail a cada 60min (seg–sex) de novos editais.</p>
+      <div class="foot"><span class="url">github.io/radar-editais-engenharia</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+    <a class="card" href="https://g3healthservice.github.io/brain27/" target="_blank" rel="noopener">
+      <span class="badge b-live">● no ar</span>
+      <div class="top">
+        <div class="ico">🚐</div>
+        <div><h3>Brain27 — Unidades Móveis</h3><span class="tag">Configurador carreta / caminhão / van</span></div>
+      </div>
+      <p>Site configurador de unidades móveis de saúde (carreta, caminhão, van) com memória de cálculo dos editais e catálogo de fotos reais.</p>
+      <div class="foot"><span class="url">github.io/brain27</span><span class="go">Abrir ↗</span></div>
+    </a>
+
+  </div>
+
+</main>
+
+<div class="note">
+  <b>🔒 Raio-X e PWG</b> pedem login: entre com seu e-mail e a senha que o Gerson te passar. Os demais painéis são abertos, é só clicar.<br>
+  Este índice pode ser aberto em qualquer computador ou celular — todos os links apontam para painéis publicados na web.
+</div>
+
+<footer>
+  G3 Health Service · painéis hospedados em <a class="plain" href="https://github.com/g3healthservice" target="_blank" rel="noopener">github.com/g3healthservice</a>
+</footer>
+
 </body>
 </html>
